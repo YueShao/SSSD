@@ -1,0 +1,55 @@
+# Python
+__pycache__/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# macOS
+.DS_Store
+
+# Virtual env
+venv/
+.venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+
+# Logs
+logs/
+*.log
+
+# Dataset
+data/
+datasets/
+
+# Results
+results/
+outputs/
+
+# Model checkpoints
+checkpoints/
+*.pth
+*.pt
+*.ckpt
+
+# Numpy / cache
+*.npy
+*.npz
+
+# WandB
+wandb/
+
+# Temporary
+tmp/
+temp/
+cache/
+
+# Latex
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.synctex.gz
