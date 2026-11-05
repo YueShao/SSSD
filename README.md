@@ -2,11 +2,14 @@
 
 Official implementation of the paper:
 
-"Internal Evaluation of Unsupervised Anomaly Detection Algorithms with Explanation"
+**Internal Evaluation of Unsupervised Anomaly Detection Algorithms with Explanation**
 
-![Framework of SSSD](assets/Framework.png)
+**Authors:** Yue Shao, Baile Xu, Furao Shen, and Jian Zhao
+
+**Venue:** NeurIPS 2026, Evaluations & Datasets Track
 
 ## Overview
+![Framework of SSSD](assets/Framework.png)
 
 SSSD (Similar Scores, Similar Data) is an internal evaluation framework for unsupervised anomaly detection.
 
@@ -59,6 +62,26 @@ Experiments on synthetic datasets for validating the effectiveness of SSSD.
 
 Experiments on real-world anomaly detection datasets using multiple anomaly detectors.
 
+## Data
+
+The data in this repository are used for the experimental evaluation of SSSD. SSSD itself takes input features and anomaly scores; ground-truth labels are used only for external evaluation.
+
+### Synthetic data
+
+The nine synthetic datasets in `dataset/artificial/` were generated for the experiments described in the paper. Datasets 1-5 are two-dimensional; Datasets 6-9 have 5, 10, 15, and 20 features, respectively.
+
+Each data file is paired with a ground-truth file named `DataSet<n>GT`. Labels use `0` for normal samples and `1` for anomalies.
+
+### Real-world data
+
+The repository contains 16 real-world dataset files from two sources:
+
+- **[ODDS](https://shebuti.com/outlier-detection-datasets-odds/):** nine `.mat` files directly under `dataset/realworld/`: `glass.mat`, `ionosphere.mat`, `letter.mat`, `lympho.mat`, `satellite.mat`, `satimage-2.mat`, `vertebral.mat`, `vowels.mat`, and `wbc.mat`.
+- **[DAMI](https://www.dbs.ifi.lmu.de/research/outlier-evaluation/DAMI/):** seven
+  `.arff` files in the `InternetAds/`, `Ionosphere/`, `Lymphography/`, `Shuttle/`, `WBC/`, `WDBC/`, and `Waveform/` subdirectories of `dataset/realworld/`.
+
+ODDS `.mat` files contain `X` (features) and `y` (labels, with `1` denoting an anomaly). The DAMI `.arff` files contain feature fields, an `id` identifier, and an `outlier` label (`yes` for an anomaly and `no` for a normal sample).
+
 ## Using SSSD in Your Own Code
 
 ```python
@@ -79,8 +102,20 @@ Output interpretation:
 - `final_sssd_sum`: aggregated SSSD value over all samples.
 - `ranked_indices`: sample indices sorted by descending SSSD value. Samples ranked earlier are more likely to violate score--data consistency.
 
-
 ## Notes
 
 * Larger SSSD values indicate stronger violations of score-data consistency.
 * The implementation supports arbitrary anomaly detectors that output anomaly scores.
+
+## Citation
+
+If you find this repository useful in your research, please consider citing our paper:
+
+```bibtex
+@inproceedings{shao2026sssd,
+  title     = {Internal Evaluation of Unsupervised Anomaly Detection Algorithms with Explanation},
+  author    = {Shao, Yue and Xu, Baile and Shen, Furao and Zhao, Jian},
+  booktitle = {Advances in Neural Information Processing Systems},
+  year      = {2026}
+}
+```
