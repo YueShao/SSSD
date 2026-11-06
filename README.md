@@ -1,4 +1,4 @@
-# SSSD
+# SSSD: Internal Evaluation of Unsupervised Anomaly Detection Algorithms with Explanation
 
 Official implementation of the paper:
 
