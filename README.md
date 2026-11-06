@@ -119,3 +119,9 @@ If you find this repository useful in your research, please consider citing our 
   year      = {2026}
 }
 ```
+
+## License
+
+The source code of SSSD is released under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+Third-party datasets remain subject to their original licenses and terms of use.
