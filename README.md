@@ -15,7 +15,10 @@ SSSD (Similar Scores, Similar Data) is an internal evaluation framework for unsu
 
 It is designed to evaluate whether anomaly scores are consistent with the local structure of the input data. Intuitively, data points with similar characteristics should receive similar anomaly scores. A larger SSSD value indicates a stronger violation of this score--data consistency and suggests a higher probability of unreliable detection for the corresponding data point.
 
+## Notes
 
+* Larger SSSD values indicate stronger violations of score-data consistency.
+* The implementation supports arbitrary anomaly detectors that output anomaly scores.
 
 ## Installation
 
@@ -101,11 +104,6 @@ Output interpretation:
 - `final_sssd`: point-wise SSSD values in the original sample order.
 - `final_sssd_sum`: aggregated SSSD value over all samples.
 - `ranked_indices`: sample indices sorted by descending SSSD value. Samples ranked earlier are more likely to violate score--data consistency.
-
-## Notes
-
-* Larger SSSD values indicate stronger violations of score-data consistency.
-* The implementation supports arbitrary anomaly detectors that output anomaly scores.
 
 ## Citation
 
